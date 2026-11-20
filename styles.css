@@ -92,10 +92,11 @@ a { color: inherit; }
 .hand-title {
   font-family: var(--f-hand);
   font-weight: 700;
-  font-size: clamp(2.6rem, 6.4vw, 4.6rem);
-  line-height: .95;
-  margin: 0 0 .3em;
-  letter-spacing: -.02em;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 .5em;
+  letter-spacing: .22em;
+  text-transform: uppercase;
 }
 
 .btn {
@@ -131,8 +132,10 @@ a { color: inherit; }
   background: var(--blue);
   color: var(--ink);
   font-family: var(--f-hand);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .18em;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -413,7 +416,7 @@ a { color: inherit; }
 .step:nth-child(5) { --dot: var(--caramel); }
 .step__art { width: 100%; max-width: 96px; height: auto; margin: 4px auto 10px; display: block; fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .step__art text { stroke: none; fill: var(--ink); font-family: var(--f-hand); font-weight: 700; font-size: 22px; }
-.step h3 { font-family: var(--f-hand); font-weight: 700; font-size: 1.5rem; line-height: 1.05; margin: 0 0 .3em; }
+.step h3 { font-family: var(--f-hand); font-weight: 700; font-size: 1.1rem; line-height: 1.2; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 .3em; }
 .step p { margin: 0; font-size: .95rem; line-height: 1.4; }
 
 /* ---------- archive ---------- */
@@ -442,14 +445,15 @@ a { color: inherit; }
 .flavor__num { font-family: var(--f-mono); font-size: .85rem; letter-spacing: .15em; }
 .flavor svg { width: 54px; margin: 18px 0 12px; fill: var(--field); stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
 .flavor svg .lid { fill: var(--blue); }
-.flavor h3 { font-family: var(--f-hand); font-weight: 700; font-size: 1.6rem; line-height: 1.05; margin: 0 0 .25em; }
+.flavor h3 { font-family: var(--f-hand); font-weight: 700; font-size: 1.15rem; line-height: 1.2; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 .25em; }
 .flavor__label {
   align-self: flex-start;
   background: var(--label);
   color: var(--on-pop);
   border-radius: 10px;
   padding: .12em .45em .18em;
-  font-size: 1.35rem !important;
+  font-size: 1rem !important;
+  padding: .3em .7em .32em !important;
 }
 .flavor p { margin: 0; font-size: .92rem; line-height: 1.4; }
 .flavor__meta { margin-top: auto !important; padding-top: 12px; font-family: var(--f-mono); font-size: .78rem !important; text-transform: uppercase; letter-spacing: .1em; }
@@ -469,7 +473,7 @@ a { color: inherit; }
   text-align: center;
 }
 .flavor--empty .flavor__num { opacity: .7; }
-.flavor--empty h3 { font-size: 1.25rem; font-weight: 400; margin-top: .3em; }
+.flavor--empty h3 { font-size: .95rem; font-weight: 400; margin-top: .3em; }
 
 /* ---------- about ---------- */
 
@@ -498,7 +502,7 @@ a { color: inherit; }
 
 .about__text { font-family: var(--f-hand); font-size: clamp(1.45rem, 2.6vw, 2rem); line-height: 1.3; letter-spacing: -.01em; }
 .about__text p { margin: 0 0 .5em; }
-.hand-title--big { font-size: clamp(2.8rem, 6.6vw, 4.8rem); }
+.hand-title--big { font-size: clamp(2rem, 4.6vw, 3.3rem); }
 .about__small { font-family: var(--f-caps); font-size: 1.05rem; line-height: 1.5; max-width: 30em; color: var(--ink-soft); margin-top: 1.2em !important; }
 
 /* ---------- contact ---------- */
@@ -529,7 +533,7 @@ a { color: inherit; }
   display: grid;
   gap: 20px;
 }
-.contact__form label > span, .chips legend { display: block; font-family: var(--f-hand); font-weight: 700; font-size: 1.2rem; line-height: 1.1; margin-bottom: 4px; }
+.contact__form label > span, .chips legend { display: block; font-family: var(--f-hand); font-weight: 700; font-size: .9rem; line-height: 1.1; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 4px; }
 .contact__form input[type="text"],
 .contact__form input[type="email"],
 .contact__form textarea {
@@ -557,6 +561,7 @@ a { color: inherit; }
   font-size: .95rem;
   transition: background .15s;
 }
+.contact__form .chips label > span { font-family: var(--f-caps); font-weight: 400; font-size: .92rem; text-transform: none; letter-spacing: .01em; line-height: 1.3; margin: 0; }
 .chips input:checked + span { background: var(--pop); color: var(--on-pop); }
 .chips input:focus-visible + span { outline: 1.5px solid var(--ink); outline-offset: 3px; }
 .contact__form .btn { justify-self: start; }
