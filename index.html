@@ -56,6 +56,8 @@
         <form class="signup" data-form="list" novalidate>
           <label class="sr-only" for="signup-email">Email</label>
           <input id="signup-email" class="signup__input" type="email" name="email" placeholder="email" autocomplete="email" required>
+          <input type="hidden" name="form" value="list">
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn" type="submit">I'm in →</button>
           <p class="form-msg" role="status" aria-live="polite"></p>
         </form>
@@ -112,6 +114,7 @@
           <div><dt>Pints</dt><dd><span data-drop-left>10</span> of 10 left</dd></div>
         </dl>
         <div class="pints" data-pints aria-hidden="true"></div>
+        <a class="btn ticket__cta" data-claim href="#" target="_blank" rel="noopener" hidden>claim a pint →</a>
         <p class="ticket__foot">first come, first scooped</p>
       </article>
     </section>
@@ -119,7 +122,7 @@
     <!-- ===== How it works ===== -->
     <section class="how" id="how-it-works" aria-labelledby="how-title">
       <h2 id="how-title" class="hand-title">how it works</h2>
-      <p class="how__lede">Every month there's a new drop with <strong>one</strong> flavor, made in one small batch. That's it. That's the whole business.</p>
+      <p class="how__lede">Every month I make <strong>one</strong> new flavor in one small batch. Ten pints. That's it. That's the whole business.</p>
 
       <ol class="steps">
         <li class="step">
@@ -136,7 +139,7 @@
             <path d="M20 40l50-22v54L20 56z"/><path d="M20 40v16"/><path d="M28 58l6 22h10l-4-19"/><path d="M80 34l18-10M82 46h20M80 58l18 10"/>
           </svg>
           <h3>Flavor reveal</h3>
-          <p>Once a month we announce the flavor. New every time — no repeats.</p>
+          <p>Once a month I announce the flavor. New every time, never repeated.</p>
         </li>
         <li class="step">
           <span class="step__n">3</span>
@@ -152,7 +155,7 @@
             <path d="M60 82S32 52 32 34a28 28 0 0 1 56 0c0 18-28 48-28 48z"/><circle cx="60" cy="34" r="10"/>
           </svg>
           <h3>Local pickup</h3>
-          <p>Come grab it. We'll send the when and where.</p>
+          <p>Come grab it. I'll send the when and where.</p>
         </li>
         <li class="step">
           <span class="step__n">5</span>
@@ -160,7 +163,7 @@
             <path d="M30 50h60a30 30 0 0 1-60 0z"/><path d="M40 50c0-14 10-22 20-22s20 8 20 22"/><path d="M48 22l4 6M66 16l-2 7M80 24l-5 5M56 36l3 3M68 34l-3 4"/>
           </svg>
           <h3>Add toppings</h3>
-          <p>Mandatory. (Indy's rule.)</p>
+          <p>Mandatory. (My rule.)</p>
         </li>
       </ol>
     </section>
@@ -169,7 +172,7 @@
     <section class="archive" id="archive" aria-labelledby="archive-title">
       <div class="archive__head">
         <h2 id="archive-title" class="hand-title">the archive</h2>
-        <p>Every flavor we've ever made. Since there are no repeats, once it's in here it's gone forever. Sorry. (Not sorry.)</p>
+        <p>Every flavor I've ever made. Since there are no repeats, once it's in here it's gone forever. Sorry. (Not sorry.)</p>
       </div>
       <div class="archive__grid" data-archive>
         <!-- filled in by script.js from DROPS -->
@@ -181,14 +184,14 @@
       <figure class="about__photo">
         <span class="tape tape--l" aria-hidden="true"></span>
         <span class="tape tape--r" aria-hidden="true"></span>
-        <img src="assets/img/indy.png" alt="Indy grinning with a chocolate-dipped soft serve cone and a mustache of ice cream" width="306" height="510" loading="lazy">
-        <figcaption>exhibit A</figcaption>
+        <img src="assets/img/indy.png" alt="Indy as a little kid, grinning with a chocolate-dipped soft serve cone and a mustache of ice cream" width="306" height="510" loading="lazy">
+        <figcaption>exhibit A: early research</figcaption>
       </figure>
       <div class="about__text">
         <h2 id="about-title" class="hand-title hand-title--big">Hi! I am Indy.</h2>
         <p>I love ice cream&hellip; that is my main credential.</p>
         <p>I also hate ice cream with no toppings.</p>
-        <p class="about__small">Every pint is made by hand in one small batch, one flavor a month. We'll grow someday — for now it's ten pints and a lot of taste testing.</p>
+        <p class="about__small">That's me up there, a few decades into my research. Indy's is my tiny ice cream company: one flavor a month, made by hand in one small batch, never repeated. It'll grow someday. For now it's ten pints and a lot of taste testing.</p>
       </div>
     </section>
 
@@ -197,7 +200,7 @@
       <div class="contact__intro">
         <h2 id="contact-title" class="hand-title">Requests?</h2>
         <p class="pink-note">Or want to reach out about events?</p>
-        <p>Got a flavor idea? Want Indy's at your party, school, or block thing? Say hi.</p>
+        <p>Got a flavor idea? Want Indy's at your party, office, or block party? Say hi. I read everything.</p>
       </div>
       <form class="contact__form paper" data-form="contact" novalidate>
         <label>
@@ -218,6 +221,8 @@
           <span>message</span>
           <textarea name="message" rows="4" required></textarea>
         </label>
+        <input type="hidden" name="form" value="contact">
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit">send it →</button>
         <p class="form-msg" role="status" aria-live="polite"></p>
       </form>
@@ -227,6 +232,7 @@
   <footer class="footer paper">
     <img src="assets/img/logo.png" alt="Indy's" width="440" height="190" loading="lazy">
     <p>small batch ice cream · one flavor a month · local pickup</p>
+    <p><a class="footer__ig" data-instagram href="#" target="_blank" rel="noopener" hidden>@instagram</a></p>
     <p class="mono">© <span data-year>2026</span> Indy's</p>
   </footer>
 

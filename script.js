@@ -2,16 +2,21 @@
    Indy's — the only file you need to touch each month.
    ========================================================= */
 
-/* ---------- 1. Settings ----------
-   LIST_ENDPOINT / CONTACT_ENDPOINT: paste a form URL from a service like
-   Formspree (https://formspree.io), Basin, or Getform. Anything that accepts
-   a POST with form fields and answers JSON works.
-   If an endpoint is left empty, the form falls back to opening an email
-   to CONTACT_EMAIL instead.                                              */
+/* ---------- 1. Settings ---------- */
 const SITE = {
+  // Shown if a form ever fails, and used as a fallback when SHEET_URL is empty.
   CONTACT_EMAIL: "hello@example.com",   // TODO: your real email
-  LIST_ENDPOINT: "",                    // TODO: e.g. "https://formspree.io/f/abcd1234"
-  CONTACT_ENDPOINT: "",                 // TODO: can be the same form or a second one
+
+  // Google Sheets web-app URL (see google-sheets/README.md for the 5-minute setup).
+  // Sign-ups go to the "List" tab, contact messages go to the "Messages" tab.
+  SHEET_URL: "",                        // TODO: "https://script.google.com/macros/s/XXXX/exec"
+
+  // Your Hotplate storefront. When a drop is "live", the ticket shows a
+  // "claim a pint" button that links here. Leave empty until you're set up.
+  HOTPLATE_URL: "",                     // e.g. "https://www.hotplate.com/indys"
+
+  // Optional: shows in the footer.
+  INSTAGRAM: "",                        // e.g. "indysicecream" (no @)
 };
 
 /* ---------- 2. Drops ----------
@@ -56,6 +61,8 @@ function renderCurrentDrop() {
   const ticket = $("[data-drop]");
   const pints = $("[data-pints]");
   const title = $("#drop-title");
+  const foot = $(".ticket__foot", ticket);
+  const claim = $("[data-claim]", ticket);
 
   if (!current) {
     // between drops: everything is sold out
@@ -74,10 +81,19 @@ function renderCurrentDrop() {
   pints.innerHTML = Array.from({ length: TOTAL_PINTS }, (_, i) => PINT_SVG(i >= left)).join("");
 
   if (current.status === "live") {
-    title.innerHTML = left > 0
-      ? "<span>Drop</span><span>is</span><span>live</span><span>now!</span>"
-      : "<span>Sold</span><span>out!</span><span>see you</span><span>next month</span>";
-    ticket.querySelector(".ticket__foot").textContent = left > 0 ? "reply to the email to claim yours" : "join the list for the next one";
+    if (left > 0) {
+      title.innerHTML = "<span>Drop</span><span>is</span><span>live</span><span>now!</span>";
+      if (SITE.HOTPLATE_URL) {
+        claim.href = SITE.HOTPLATE_URL;
+        claim.hidden = false;
+        foot.textContent = "first come, first scooped";
+      } else {
+        foot.textContent = "check your inbox to claim yours";
+      }
+    } else {
+      title.innerHTML = "<span>Sold</span><span>out!</span><span>see you</span><span>next month</span>";
+      foot.textContent = "join the list for the next one";
+    }
   }
 
   const msg = current.status === "live" && left > 0
@@ -108,7 +124,7 @@ function renderArchive() {
 
   // a few empty slots for flavors not invented yet
   const nextNum = (DROPS.at(-1)?.number ?? 0) + 1;
-  const empties = Math.max(2, 4 - (DROPS.length % 4 || 4)) ;
+  const empties = Math.max(2, 4 - (DROPS.length % 4 || 4));
   for (let k = 0; k < empties; k++) {
     cards.push(`
       <article class="flavor flavor--empty" aria-label="Future drop">
@@ -120,7 +136,7 @@ function renderArchive() {
 }
 
 /* ---- forms ---- */
-function setupForm(form, { endpoint, subject, toBody, success }) {
+function setupForm(form, { subject, toBody, success }) {
   const msg = $(".form-msg", form);
   const btn = $("button[type=submit]", form);
 
@@ -138,7 +154,10 @@ function setupForm(form, { endpoint, subject, toBody, success }) {
 
     const data = new FormData(form);
 
-    if (!endpoint) {
+    // bots fill in the hidden "website" field; quietly pretend it worked
+    if (data.get("website")) { form.reset(); msg.textContent = success; return; }
+
+    if (!SITE.SHEET_URL) {
       const body = encodeURIComponent(toBody(data));
       window.location.href = `mailto:${SITE.CONTACT_EMAIL}?subject=${encodeURIComponent(subject(data))}&body=${body}`;
       msg.textContent = "opening your email app…";
@@ -148,13 +167,14 @@ function setupForm(form, { endpoint, subject, toBody, success }) {
     btn.disabled = true;
     msg.textContent = "sending…";
     try {
-      const res = await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
-      if (!res.ok) throw new Error(res.status);
+      // Google Apps Script doesn't send CORS headers we can read, so this is
+      // a fire-and-forget POST; a network failure still lands in the catch.
+      await fetch(SITE.SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) });
       form.reset();
       msg.textContent = success;
     } catch {
       msg.classList.add("is-error");
-      msg.textContent = `that didn't work — email us at ${SITE.CONTACT_EMAIL}`;
+      msg.textContent = `that didn't work. email me at ${SITE.CONTACT_EMAIL}`;
     } finally {
       btn.disabled = false;
     }
@@ -166,18 +186,23 @@ document.addEventListener("DOMContentLoaded", () => {
   renderArchive();
 
   setupForm($('[data-form="list"]'), {
-    endpoint: SITE.LIST_ENDPOINT,
     subject: () => "Add me to the list!",
     toBody: (d) => `Please add ${d.get("email")} to the Indy's list.`,
     success: "you're on the list! 🍦",
   });
 
   setupForm($('[data-form="contact"]'), {
-    endpoint: SITE.CONTACT_ENDPOINT,
     subject: (d) => `${d.get("topic")} — from ${d.get("name")}`,
     toBody: (d) => `${d.get("message")}\n\n— ${d.get("name")} (${d.get("email")})`,
-    success: "got it! we'll write back soon.",
+    success: "got it! I'll write back soon.",
   });
+
+  if (SITE.INSTAGRAM) {
+    const ig = $("[data-instagram]");
+    ig.href = `https://instagram.com/${encodeURIComponent(SITE.INSTAGRAM)}`;
+    ig.textContent = "@" + SITE.INSTAGRAM;
+    ig.hidden = false;
+  }
 
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 });

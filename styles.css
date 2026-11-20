@@ -55,6 +55,9 @@ a { color: inherit; }
 
 .mono { font-family: var(--f-mono); }
 
+/* honeypot field: hidden from people, bots fill it in */
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+
 .paper {
   background-color: var(--paper);
   background-image: var(--paper-tex);
@@ -346,6 +349,8 @@ a { color: inherit; }
 .pint .lid { fill: var(--pink-soft); }
 .pint.is-gone { opacity: .25; }
 .pint.is-gone .lid { fill: var(--cream); }
+.ticket__cta { display: block; width: fit-content; margin: 16px auto 0; text-decoration: none; }
+.ticket__cta[hidden] { display: none; }
 .ticket__foot { font-family: var(--f-hand); font-size: 1.5rem; margin: 6px 0 0; text-align: center; }
 
 /* ---------- how it works ---------- */
@@ -547,6 +552,7 @@ a { color: inherit; }
 }
 .footer img { width: 170px; margin: 0 auto 8px; }
 .footer p { margin: 4px 0; }
+.footer__ig { font-family: var(--f-hand); font-size: 1.5rem; color: var(--pink); }
 .footer .mono { font-size: .85rem; color: var(--ink-soft); }
 
 /* ---------- responsive ---------- */

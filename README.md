@@ -16,14 +16,12 @@ Everything that changes month to month lives at the top of **`script.js`**, in t
    Leave `flavor: null` to keep it secret ("top secret 🤫"), or fill it in to reveal it.
 3. When pints go on sale, set `status: "live"`. Lower `pintsLeft` as they're claimed. The ten little pints on the ticket gray out as they go, and the top bar and headline update by themselves.
 
-## Email list + contact form
-
-Also at the top of `script.js`, in `SITE`:
+## Settings (top of `script.js`, in `SITE`)
 
 - `CONTACT_EMAIL`: your real email. **Change this before launching.**
-- `LIST_ENDPOINT` / `CONTACT_ENDPOINT`: a form URL from a service like [Formspree](https://formspree.io), Basin or Getform (free tiers are fine for this size). Sign-ups and messages then land in that service and get emailed to you.
-
-If an endpoint is left blank, that form opens the visitor's email app addressed to `CONTACT_EMAIL` instead.
+- `SHEET_URL`: sign-ups and contact messages save to a Google Sheet. Setup takes about 5 minutes; see [`google-sheets/README.md`](google-sheets/README.md). Until it's set, both forms open the visitor's email app addressed to `CONTACT_EMAIL` instead.
+- `HOTPLATE_URL`: your Hotplate storefront. While a drop is `"live"`, the ticket shows a **claim a pint** button linking there.
+- `INSTAGRAM`: your handle, shown in the footer.
 
 ## Publishing
 
@@ -38,4 +36,5 @@ index.html          the page
 styles.css          all the styling (colors are at the top under :root)
 script.js           settings + monthly drops
 assets/img/         logo, cone drawing and Indy's photo (cut out from the original sketch)
+google-sheets/      the script that saves sign-ups into a Google Sheet
 ```
