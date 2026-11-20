@@ -3,27 +3,27 @@
    ========================================================= */
 
 :root {
-  /* ---- palette: "Plum & Butter" (default) ----
-     Change these to recolor the whole site. Alternates are at the bottom. */
-  --ink: #3a1f2f;          /* text + outlines (eggplant) */
-  --ink-soft: #6e4d5d;
-  --bg: #fdf6e8;           /* page background */
-  --paper: #f6e5c6;        /* crumpled-paper header/footer (egg white) */
-  --field: #fffbf3;        /* inside inputs */
-  --accent: #9b3a5a;       /* nav links, notes, sparkles */
-  --accent-soft: #f3bcb4;  /* rose */
-  --pop: #631d3f;          /* top bar, big shadows (plum) */
-  --on-pop: #ffec8e;       /* text on --pop (butter) */
-  --sun: #ffe27a;          /* buttons, highlights */
-  --c1: #fffaf0;           /* card colors (how it works, archive) */
-  --c2: #f3bcb4;
-  --c3: #e6d389;
-  --c4: #b8ccbc;
-  --c5: #dcaab3;
-  --how-bg: #631d3f;
-  --how-fg: #fdf1d6;
-  --about-bg: #f3bcb4;
-  --error: #b3261e;
+  /* ---- palette: "Chocolate & Cream" ----
+     Change these to recolor the whole site. */
+  --ink: #3b2216;          /* dark chocolate: text + outlines */
+  --ink-soft: #6b4a38;     /* milk chocolate: smaller text */
+  --bg: #f7eedd;           /* vanilla cream: page background */
+  --paper: #efe0c4;        /* crumpled-paper header/footer */
+  --field: #fffaf0;        /* inside inputs */
+  --accent: #a3242f;       /* cherry: nav links, notes, sparkles */
+  --accent-soft: #e36a57;  /* strawberry: blob behind cone, hovers */
+  --pop: #3b2216;          /* chocolate: top bar, big shadows */
+  --on-pop: #f7eedd;       /* text on chocolate */
+  --sun: #efbd48;          /* custard: buttons, highlights */
+  --c1: #fbf4e6;           /* card flavors: vanilla */
+  --c2: #e36a57;           /*   strawberry */
+  --c3: #efbd48;           /*   custard */
+  --c4: #a2ab4f;           /*   pistachio */
+  --c5: #cf8740;           /*   caramel */
+  --how-bg: #3b2216;       /* "how it works" band */
+  --how-fg: #f7eedd;
+  --about-bg: #efbd48;     /* about band */
+  --error: #a3242f;
 
   --f-hand: "Caveat", "Comic Sans MS", cursive;
   --f-caps: "Architects Daughter", "Comic Sans MS", cursive;
@@ -613,53 +613,4 @@ a { color: inherit; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
   .dots i { opacity: 1; }
-}
-
-/* =========================================================
-   Alternate palettes — to try one, add data-palette="garden"
-   (or "sherbet") to the <html> tag in index.html.
-   ========================================================= */
-
-/* terracotta, olive, sage, rose — from the floral rug */
-[data-palette="garden"] {
-  --ink: #3b1a17;
-  --ink-soft: #6e4a40;
-  --bg: #faf2e6;
-  --paper: #eedfc2;
-  --field: #fffaf2;
-  --accent: #b8382f;
-  --accent-soft: #f2a99a;
-  --pop: #5f6127;
-  --on-pop: #f8e8cc;
-  --sun: #ecc56a;
-  --c1: #faf2e6;
-  --c2: #f2a99a;
-  --c3: #ecc56a;
-  --c4: #a9c3b8;
-  --c5: #dc9580;
-  --how-bg: #5f6127;
-  --how-fg: #f8e8cc;
-  --about-bg: #a9c3b8;
-}
-
-/* bright sherbet: tomato, baby pink, apricot, sea glass */
-[data-palette="sherbet"] {
-  --ink: #2f2a35;
-  --ink-soft: #5a5462;
-  --bg: #fffaf3;
-  --paper: #f8ead6;
-  --field: #ffffff;
-  --accent: #e0436f;
-  --accent-soft: #f9d4f8;
-  --pop: #ef6545;
-  --on-pop: #fff3e0;
-  --sun: #ffd094;
-  --c1: #fffaf3;
-  --c2: #f9d4f8;
-  --c3: #ffd094;
-  --c4: #d3edc5;
-  --c5: #aecfd0;
-  --how-bg: #aecfd0;
-  --how-fg: #2f2a35;
-  --about-bg: #f9d4f8;
 }
