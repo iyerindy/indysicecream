@@ -53,7 +53,7 @@ const PINT_SVG = (gone) => `
     <path class="lid" d="M5 5h30v7H5z"/>
   </svg>`;
 
-const CARD_COLORS = ["var(--butter)", "var(--mint)", "var(--sky)", "var(--pink-soft)", "var(--lavender-soft)", "var(--cream)"];
+const CARD_COLORS = ["var(--c3)", "var(--c4)", "var(--c5)", "var(--c2)", "var(--c1)"];
 
 /* ---- next drop ticket + top bar ---- */
 function renderCurrentDrop() {
