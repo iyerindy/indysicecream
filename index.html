@@ -8,16 +8,27 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- ===== Top bar ===== -->
-  <div class="topbar"><span data-topbar>Stay tuned for the next drop</span></div>
+  <div class="topbar" aria-label="Announcement">
+    <div class="topbar__track">
+      <span class="topbar__msg" data-topbar>stay tuned for next drop</span><span aria-hidden="true">✦</span>
+      <span>ten pints only</span><span aria-hidden="true">✦</span>
+      <span>santa monica pickup</span><span aria-hidden="true">✦</span>
+      <span>no repeats, ever</span><span aria-hidden="true">✦</span>
+      <span class="topbar__msg" data-topbar aria-hidden="true">stay tuned for next drop</span><span aria-hidden="true">✦</span>
+      <span aria-hidden="true">ten pints only</span><span aria-hidden="true">✦</span>
+      <span aria-hidden="true">santa monica pickup</span><span aria-hidden="true">✦</span>
+      <span aria-hidden="true">no repeats, ever</span><span aria-hidden="true">✦</span>
+    </div>
+  </div>
 
   <!-- ===== Header ===== -->
-  <header class="header">
+  <header class="header paper">
     <nav class="nav nav--left" aria-label="Primary">
       <a href="#how-it-works">How it works</a>
       <a href="#archive">Archive</a>
@@ -27,7 +38,7 @@
     </a>
     <nav class="nav nav--right" aria-label="Secondary">
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Contact us</a>
     </nav>
   </header>
 
@@ -36,111 +47,132 @@
     <!-- ===== Hero ===== -->
     <section class="hero" id="join">
       <div class="hero__join">
-        <p class="eyebrow">Small batch ice cream · Santa Monica</p>
-        <h1 class="display">Join<br>the list</h1>
+        <h1 class="spaced">
+          <span>J O I N</span>
+          <span>T H E</span>
+          <span>L I S T</span>
+        </h1>
         <p class="hero__sub">Pints go fast. The list hears about every drop first.</p>
         <form class="signup" data-form="list" novalidate>
           <label class="sr-only" for="signup-email">Email</label>
-          <div class="signup__row">
-            <input id="signup-email" class="signup__input" type="email" name="email" placeholder="Your email" autocomplete="email" required>
-            <button class="signup__btn" type="submit" aria-label="Join the list">Join <span aria-hidden="true">→</span></button>
-          </div>
+          <input id="signup-email" class="signup__input" type="email" name="email" placeholder="email" autocomplete="email" required>
           <input type="hidden" name="form" value="list">
           <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">I'm in →</button>
           <p class="form-msg" role="status" aria-live="polite"></p>
         </form>
       </div>
 
       <div class="hero__cone">
+        <svg class="doodle doodle--sparkle s1" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32"/></svg>
+        <svg class="doodle doodle--sparkle s2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32M4 20h32"/></svg>
+        <svg class="doodle doodle--sparkle s3" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32"/></svg>
+        <span class="blob" aria-hidden="true"></span>
         <img src="assets/img/cone.png" alt="Hand-drawn triple scoop waffle cone" width="265" height="630">
       </div>
 
       <ul class="hero__facts">
-        <li><span class="fact">One flavor</span><span class="note">no repeats</span></li>
-        <li><span class="fact">Ten pints</span><span class="note">no extras</span></li>
-        <li><span class="fact">Every month</span></li>
+        <li>
+          <span class="fact">ONE<br>FLAVOR</span>
+          <span class="note note--nw">
+            <svg viewBox="0 0 60 40" aria-hidden="true"><path d="M56 6C40 8 22 18 8 34M8 34l2-12M8 34l12-2"/></svg>
+            NO REPEATS
+          </span>
+        </li>
+        <li>
+          <span class="fact">TEN<br>PINTS</span>
+          <span class="note note--nw">
+            <svg viewBox="0 0 60 40" aria-hidden="true"><path d="M56 6C40 8 22 18 8 34M8 34l2-12M8 34l12-2"/></svg>
+            NO EXTRAS
+          </span>
+        </li>
+        <li>
+          <span class="fact">EVERY<br>MONTH</span>
+          <svg class="scribble" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12c30-8 60-8 90-3s70 4 104-4"/></svg>
+        </li>
       </ul>
     </section>
 
     <!-- ===== Next drop ===== -->
     <section class="drop" aria-labelledby="drop-title">
-      <div class="drop__intro">
-        <p class="eyebrow">Drop <span data-drop-number>001</span></p>
-        <h2 id="drop-title" class="display display--md">Next drop<br><em>coming soon<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></em></h2>
-      </div>
+      <h2 id="drop-title" class="drop__title">
+        <span>Next</span>
+        <span>drop</span>
+        <span>coming</span>
+        <span>soon<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></span>
+      </h2>
 
-      <article class="drop__card" data-drop>
-        <dl class="details">
-          <div><dt>Flavor</dt><dd data-drop-flavor>To be announced</dd></div>
+      <article class="ticket paper" data-drop>
+        <header class="ticket__head">
+          <span class="mono">DROP</span>
+          <span class="ticket__num" data-drop-number>#001</span>
+        </header>
+        <dl class="ticket__rows mono">
+          <div><dt>Flavor</dt><dd data-drop-flavor>top secret 🤫</dd></div>
           <div><dt>When</dt><dd data-drop-when>TBA — watch your inbox</dd></div>
           <div><dt>Pickup</dt><dd>Santa Monica</dd></div>
           <div><dt>Pints</dt><dd><span data-drop-left>10</span> of 10 left</dd></div>
         </dl>
         <div class="pints" data-pints aria-hidden="true"></div>
-        <a class="btn" data-claim href="#" target="_blank" rel="noopener" hidden>Claim a pint <span aria-hidden="true">→</span></a>
-        <p class="drop__foot note">first come, first scooped</p>
+        <a class="btn ticket__cta" data-claim href="#" target="_blank" rel="noopener" hidden>claim a pint →</a>
+        <p class="ticket__foot">first come, first scooped</p>
       </article>
     </section>
 
     <!-- ===== How it works ===== -->
     <section class="how" id="how-it-works" aria-labelledby="how-title">
-      <div class="section-head">
-        <p class="eyebrow">How it works</p>
-        <h2 id="how-title" class="display display--md">One flavor, one small batch, <em>every month.</em></h2>
-      </div>
+      <h2 id="how-title" class="hand-title">how it works</h2>
+      <p class="how__lede">Every month I make <strong>one</strong> new flavor in one small batch. Ten pints. That's it. That's the whole business.</p>
 
       <ol class="steps">
         <li class="step">
-          <span class="step__n">01</span>
+          <span class="step__n">1</span>
           <svg class="step__art" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M14 22h92v54H14z"/><path d="M14 22l46 32 46-32"/>
+            <path d="M12 20h96v58H12z"/><path d="M12 20l48 34 48-34"/><path d="M14 76l34-28M106 76 72 48"/>
           </svg>
           <h3>Join the list</h3>
-          <p>Leave your email. No spam, just ice cream news.</p>
+          <p>Drop your email up top. No spam, just ice cream news.</p>
         </li>
         <li class="step">
-          <span class="step__n">02</span>
+          <span class="step__n">2</span>
           <svg class="step__art" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M24 40l46-20v50L24 54z"/><path d="M24 40v14"/><path d="M32 56l5 20h9l-4-18"/><path d="M82 32l16-8M84 46h18M82 60l16 8"/>
+            <path d="M20 40l50-22v54L20 56z"/><path d="M20 40v16"/><path d="M28 58l6 22h10l-4-19"/><path d="M80 34l18-10M82 46h20M80 58l18 10"/>
           </svg>
           <h3>Flavor reveal</h3>
           <p>Once a month I announce the flavor. New every time, never repeated.</p>
         </li>
         <li class="step">
-          <span class="step__n">03</span>
+          <span class="step__n">3</span>
           <svg class="step__art" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M38 24h44l-5 56H43z"/><path d="M34 16h52v8H34z"/>
+            <path d="M36 22h48l-6 60H42z"/><path d="M32 14h56v8H32z"/><text x="60" y="60" text-anchor="middle">10</text>
           </svg>
           <h3>Claim a pint</h3>
           <p>Only ten exist. When they're gone, they're gone.</p>
         </li>
         <li class="step">
-          <span class="step__n">04</span>
+          <span class="step__n">4</span>
           <svg class="step__art" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M60 80S34 52 34 34a26 26 0 0 1 52 0c0 18-26 46-26 46z"/><circle cx="60" cy="34" r="9"/>
+            <path d="M60 82S32 52 32 34a28 28 0 0 1 56 0c0 18-28 48-28 48z"/><circle cx="60" cy="34" r="10"/>
           </svg>
-          <h3>Pickup</h3>
+          <h3>Local pickup</h3>
           <p>Come grab it in Santa Monica. I'll send the when and where.</p>
         </li>
         <li class="step">
-          <span class="step__n">05</span>
+          <span class="step__n">5</span>
           <svg class="step__art" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M30 50h60a30 30 0 0 1-60 0z"/><path d="M42 50c0-13 8-20 18-20s18 7 18 20"/><path d="M50 22l3 5M66 17l-2 6M78 25l-4 4"/>
+            <path d="M30 50h60a30 30 0 0 1-60 0z"/><path d="M40 50c0-14 10-22 20-22s20 8 20 22"/><path d="M48 22l4 6M66 16l-2 7M80 24l-5 5M56 36l3 3M68 34l-3 4"/>
           </svg>
           <h3>Add toppings</h3>
-          <p>Mandatory. <span class="note note--inline">my rule</span></p>
+          <p>Mandatory. (My rule.)</p>
         </li>
       </ol>
     </section>
 
     <!-- ===== Archive ===== -->
     <section class="archive" id="archive" aria-labelledby="archive-title">
-      <div class="section-head section-head--split">
-        <div>
-          <p class="eyebrow">Archive</p>
-          <h2 id="archive-title" class="display display--md">Every flavor, <em>once.</em></h2>
-        </div>
-        <p class="section-head__aside">There are no repeats, so once a flavor lands here it's gone for good. Sorry. <span class="note note--inline">not sorry</span></p>
+      <div class="archive__head">
+        <h2 id="archive-title" class="hand-title">the archive</h2>
+        <p>Every flavor I've ever made. Since there are no repeats, once it's in here it's gone forever. Sorry. (Not sorry.)</p>
       </div>
       <div class="archive__grid" data-archive>
         <!-- filled in by script.js from DROPS -->
@@ -150,59 +182,58 @@
     <!-- ===== About ===== -->
     <section class="about" id="about" aria-labelledby="about-title">
       <figure class="about__photo">
+        <span class="tape tape--l" aria-hidden="true"></span>
+        <span class="tape tape--r" aria-hidden="true"></span>
         <img src="assets/img/indy.png" alt="Indy as a little kid, grinning with a chocolate-dipped soft serve cone and a mustache of ice cream" width="306" height="510" loading="lazy">
-        <figcaption class="note">exhibit A: early research</figcaption>
+        <figcaption>exhibit A: early research</figcaption>
       </figure>
       <div class="about__text">
-        <p class="eyebrow">About</p>
-        <h2 id="about-title" class="display display--md">Hi! I am Indy.</h2>
-        <p class="about__lead">I love ice cream&hellip; that is my main credential. I also hate ice cream with no toppings.</p>
-        <p>That's me up there, a few decades into my research. Indy's is my tiny ice cream company: one flavor a month, made by hand in Santa Monica in one small batch, never repeated. It'll grow someday. For now it's ten pints and a lot of taste testing.</p>
+        <h2 id="about-title" class="hand-title hand-title--big">Hi! I am Indy.</h2>
+        <p>I love ice cream&hellip; that is my main credential.</p>
+        <p>I also hate ice cream with no toppings.</p>
+        <p class="about__small">That's me up there, a few decades into my research. Indy's is my tiny ice cream company: one flavor a month, made by hand in Santa Monica in one small batch, never repeated. It'll grow someday. For now it's ten pints and a lot of taste testing.</p>
       </div>
     </section>
 
     <!-- ===== Contact ===== -->
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="contact__intro">
-        <p class="eyebrow">Contact</p>
-        <h2 id="contact-title" class="display display--md">Requests?</h2>
-        <p class="note note--lg">or want to reach out about events?</p>
-        <p class="muted">Got a flavor idea? Want Indy's at your party, office, or block party? Say hi. I read everything.</p>
+        <h2 id="contact-title" class="hand-title">Requests?</h2>
+        <p class="pink-note">Or want to reach out about events?</p>
+        <p>Got a flavor idea? Want Indy's at your party, office, or block party? Say hi. I read everything.</p>
       </div>
-      <form class="contact__form" data-form="contact" novalidate>
-        <div class="field-row">
-          <label class="field">
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required>
-          </label>
-          <label class="field">
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-        </div>
+      <form class="contact__form paper" data-form="contact" novalidate>
+        <label>
+          <span>name</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+          <span>email</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
         <fieldset class="chips">
-          <legend>This is about</legend>
-          <label><input type="radio" name="topic" value="Flavor request" checked><span>A flavor request</span></label>
-          <label><input type="radio" name="topic" value="Event"><span>An event</span></label>
-          <label><input type="radio" name="topic" value="Something else"><span>Something else</span></label>
+          <legend>this is about&hellip;</legend>
+          <label><input type="radio" name="topic" value="Flavor request" checked><span>a flavor request</span></label>
+          <label><input type="radio" name="topic" value="Event"><span>an event</span></label>
+          <label><input type="radio" name="topic" value="Something else"><span>something else</span></label>
         </fieldset>
-        <label class="field">
-          <span>Message</span>
+        <label>
+          <span>message</span>
           <textarea name="message" rows="4" required></textarea>
         </label>
         <input type="hidden" name="form" value="contact">
         <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn" type="submit">Send <span aria-hidden="true">→</span></button>
+        <button class="btn" type="submit">send it →</button>
         <p class="form-msg" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer paper">
     <img src="assets/img/logo.png" alt="Indy's" width="440" height="190" loading="lazy">
-    <p>Small batch ice cream · One flavor a month · Santa Monica</p>
+    <p>small batch ice cream · one flavor a month · pickup in Santa Monica</p>
     <p><a class="footer__ig" data-instagram href="#" target="_blank" rel="noopener" hidden>@instagram</a></p>
-    <p class="footer__small">© <span data-year>2026</span> Indy's</p>
+    <p class="mono">© <span data-year>2026</span> Indy's</p>
   </footer>
 
   <script src="script.js"></script>
