@@ -24,12 +24,29 @@ const SITE = {
    status: "upcoming"  – announced but not out yet (flavor can be null to keep it secret)
            "live"      – pints available now
            "sold-out"  – gone forever (shows in the archive)
-   pintsLeft only matters for upcoming/live drops.                        */
+   pintsLeft only matters for upcoming/live drops.
+   color (optional): the flavor's label color on its archive card.        */
 const DROPS = [
   {
     number: 1,
-    flavor: null,                 // e.g. "Brown Butter Sprinkle"
+    flavor: "Birthday Cake",
     description: "",              // one-liner for the archive card
+    when: "",                     // e.g. "October 2026"
+    status: "sold-out",
+    color: "#c63759",
+  },
+  {
+    number: 2,
+    flavor: "Sweet Potato Pie",
+    description: "",
+    when: "",
+    status: "sold-out",
+    color: "#a63d1c",
+  },
+  {
+    number: 3,
+    flavor: null,                 // null keeps it "top secret"
+    description: "",
     when: "TBA — watch your inbox",
     status: "upcoming",
     pintsLeft: 10,
@@ -116,15 +133,15 @@ function renderArchive() {
         <span class="flavor__num">DROP #${pad(d.number)}</span>
         <span class="flavor__stamp">${stamp}</span>
         ${PINT_SVG(false)}
-        <h3>${esc(name)}</h3>
+        <h3${d.color ? ` class="flavor__label" style="--label:${esc(d.color)}"` : ""}>${esc(name)}</h3>
         <p>${esc(d.description || (gone ? "" : "Shh. You'll find out with everyone else on the list."))}</p>
-        <p class="flavor__meta">${esc(d.when || "")}</p>
+        <p class="flavor__meta">${esc(d.when || (gone ? "gone forever" : ""))}</p>
       </article>`;
   });
 
   // a few empty slots for flavors not invented yet
   const nextNum = (DROPS.at(-1)?.number ?? 0) + 1;
-  const empties = Math.max(2, 4 - (DROPS.length % 4 || 4));
+  const empties = (4 - (DROPS.length % 4)) % 4 || 1; // fill out the row
   for (let k = 0; k < empties; k++) {
     cards.push(`
       <article class="flavor flavor--empty" aria-label="Future drop">

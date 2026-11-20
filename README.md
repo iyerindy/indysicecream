@@ -14,6 +14,7 @@ Everything that changes month to month lives at the top of **`script.js`**, in t
    { number: 2, flavor: null, description: "", when: "Pickup Sat Jan 9", status: "upcoming", pintsLeft: 10 },
    ```
    Leave `flavor: null` to keep it secret ("top secret 🤫"), or fill it in to reveal it.
+   Optional: add `color: "#c63759"` to give the flavor its own label color on its archive card (like the pint labels).
 3. When pints go on sale, set `status: "live"`. Lower `pintsLeft` as they're claimed. The ten little pints on the ticket gray out as they go, and the top bar and headline update by themselves.
 
 ## Settings (top of `script.js`, in `SITE`)
