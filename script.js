@@ -53,36 +53,34 @@ const PINT_SVG = (gone) => `
     <path class="lid" d="M5 5h30v7H5z"/>
   </svg>`;
 
-const CARD_COLORS = ["var(--c3)", "var(--c4)", "var(--c5)", "var(--c2)", "var(--c1)"];
-
 /* ---- next drop ticket + top bar ---- */
 function renderCurrentDrop() {
   const current = [...DROPS].reverse().find((d) => d.status === "live" || d.status === "upcoming");
   const ticket = $("[data-drop]");
   const pints = $("[data-pints]");
   const title = $("#drop-title");
-  const foot = $(".ticket__foot", ticket);
+  const foot = $(".drop__foot", ticket);
   const claim = $("[data-claim]", ticket);
 
   if (!current) {
     // between drops: everything is sold out
-    $("[data-drop-number]").textContent = "#" + pad((DROPS.at(-1)?.number ?? 0) + 1);
-    $("[data-drop-flavor]").textContent = "being invented";
+    $("[data-drop-number]").textContent = pad((DROPS.at(-1)?.number ?? 0) + 1);
+    $("[data-drop-flavor]").textContent = "Being invented";
     $("[data-drop-left]").textContent = TOTAL_PINTS;
     pints.innerHTML = Array.from({ length: TOTAL_PINTS }, () => PINT_SVG(false)).join("");
     return;
   }
 
   const left = Math.max(0, Math.min(TOTAL_PINTS, current.pintsLeft ?? TOTAL_PINTS));
-  $("[data-drop-number]").textContent = "#" + pad(current.number);
-  $("[data-drop-flavor]").textContent = current.flavor || "top secret 🤫";
+  $("[data-drop-number]").textContent = pad(current.number);
+  $("[data-drop-flavor]").textContent = current.flavor || "To be announced";
   $("[data-drop-when]").textContent = current.when || "TBA";
   $("[data-drop-left]").textContent = left;
   pints.innerHTML = Array.from({ length: TOTAL_PINTS }, (_, i) => PINT_SVG(i >= left)).join("");
 
   if (current.status === "live") {
     if (left > 0) {
-      title.innerHTML = "<span>Drop</span><span>is</span><span>live</span><span>now!</span>";
+      title.innerHTML = "The drop<br><em>is live.</em>";
       if (SITE.HOTPLATE_URL) {
         claim.href = SITE.HOTPLATE_URL;
         claim.hidden = false;
@@ -91,29 +89,29 @@ function renderCurrentDrop() {
         foot.textContent = "check your inbox to claim yours";
       }
     } else {
-      title.innerHTML = "<span>Sold</span><span>out!</span><span>see you</span><span>next month</span>";
+      title.innerHTML = "Sold out.<br><em>See you next month.</em>";
       foot.textContent = "join the list for the next one";
     }
   }
 
   const msg = current.status === "live" && left > 0
-    ? `drop #${pad(current.number)} is live${current.flavor ? ": " + current.flavor : ""}`
+    ? `Drop ${pad(current.number)} is live${current.flavor ? ": " + current.flavor : ""}`
     : current.flavor
-      ? `next drop: ${current.flavor}`
-      : "stay tuned for next drop";
+      ? `Next drop: ${current.flavor}`
+      : "Stay tuned for the next drop";
   $$("[data-topbar]").forEach((el) => (el.textContent = msg));
 }
 
 /* ---- archive ---- */
 function renderArchive() {
   const grid = $("[data-archive]");
-  const cards = DROPS.map((d, i) => {
+  const cards = DROPS.map((d) => {
     const gone = d.status === "sold-out";
     const name = gone || d.flavor ? (d.flavor || "Mystery flavor") : "Top secret";
     const stamp = gone ? "sold out" : d.status === "live" ? "on now" : "coming soon";
     return `
-      <article class="flavor" style="--card:${CARD_COLORS[i % CARD_COLORS.length]}">
-        <span class="flavor__num">DROP #${pad(d.number)}</span>
+      <article class="flavor">
+        <span class="flavor__num">Drop ${pad(d.number)}</span>
         <span class="flavor__stamp">${stamp}</span>
         ${PINT_SVG(false)}
         <h3>${esc(name)}</h3>
@@ -128,7 +126,7 @@ function renderArchive() {
   for (let k = 0; k < empties; k++) {
     cards.push(`
       <article class="flavor flavor--empty" aria-label="Future drop">
-        <span class="flavor__num">DROP #${pad(nextNum + k)}</span>
+        <span class="flavor__num">Drop ${pad(nextNum + k)}</span>
         <h3>not invented yet</h3>
       </article>`);
   }
