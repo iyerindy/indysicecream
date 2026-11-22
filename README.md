@@ -36,6 +36,6 @@ It works on any static host. Two easy options:
 index.html          the page
 styles.css          all the styling (colors are at the top under :root)
 script.js           settings + monthly drops
-assets/img/         logo, cone drawing and Indy's photo (cut out from the original sketch)
+assets/img/         logo, the hand-drawn pint, and Indy's photo
 google-sheets/      the script that saves sign-ups into a Google Sheet
 ```

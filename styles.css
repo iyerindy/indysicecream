@@ -235,7 +235,6 @@ a { color: inherit; }
 .hero__art { grid-area: art; position: relative; justify-self: center; width: min(100%, 620px); container-type: inline-size; }
 .hero__art img { width: 100%; }
 /* the flavor band on the drawn pint */
-[data-pint="a"] { --band-ink: var(--cream); }
 .hero__flavor {
   position: absolute;
   left: 15.9%; width: 67.4%;
@@ -244,7 +243,7 @@ a { color: inherit; }
   font-family: var(--f-marker);
   font-size: 5cqw;
   line-height: 1;
-  color: var(--band-ink, var(--choc));
+  color: var(--choc);
   transform: rotate(.8deg);
 }
 
