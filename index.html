@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Delicious+Handrawn&family=Gaegu:wght@400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Delicious+Handrawn&family=Finger+Paint&family=Gaegu:wght@400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -68,8 +68,17 @@
       </div>
 
       <h1 class="hero__headline">
-        <img src="assets/img/hero-headline.png" alt="One flavor. Ten pints. Every month." width="726" height="458">
+        <span>one flavor.</span>
+        <span>ten pints.</span>
+        <span>every month.</span>
       </h1>
+      <!-- roughens the edges of the cream labels so they look cut / hand-painted -->
+      <svg class="sr-only" aria-hidden="true" focusable="false">
+        <filter id="rough-edge" x="-5%" y="-10%" width="110%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/>
+          <feDisplacementMap in="SourceGraphic" scale="7"/>
+        </filter>
+      </svg>
 
       <form class="signup" data-form="list" novalidate>
         <svg class="signup__frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">

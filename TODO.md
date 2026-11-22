@@ -9,6 +9,9 @@ Tick these off as you go. Anything marked 💬 means: send it to Claude and it'l
 - [ ] **Photo of little Indy.** The original photo file, as big as you have it. 💬
 - [ ] **Extra doodles (optional but fun).** Sprinkles, scoops, a spoon, a pint, arrows, stars, your handwriting saying things like "no repeats!". Anything drawn on white paper. These get scattered around the site. 💬
 
+## Font
+- [ ] **Buy Prickly Pear by Typeheist** (youworkforthem.com, from $18). Pick a license that includes **web/webfont use**, then send the font files (.woff2 / .woff, or .otf and Claude will convert). The headline and "Join the list." switch to it automatically; until then they use the free look-alike Finger Paint. 💬
+
 ## Accounts to set up
 - [ ] **Google Sheet for sign-ups** (~5 min). Follow [`google-sheets/README.md`](google-sheets/README.md), then send the web-app URL 💬
 - [ ] **An email address for the business**, e.g. a new Gmail like indysicecream@gmail.com. Send it 💬 (it goes on the contact form)
