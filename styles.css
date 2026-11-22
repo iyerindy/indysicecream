@@ -36,8 +36,8 @@
   --error: var(--choc);
   --line: color-mix(in srgb, var(--choc) 22%, transparent);
   --f-marker: "Delicious Handrawn", "Gaegu", cursive;
-  /* Prickly Pear (Typeheist) once its web font files are added; Finger Paint until then */
-  --f-pear: "Prickly Pear", "Finger Paint", cursive;
+  /* Indy's own handwriting font (Finger Paint fills in any missing characters) */
+  --f-pear: "Indy Hand", "Finger Paint", cursive;
 
   /* top of page: top bar + hero */
   --bar-bg: var(--choc);
@@ -62,15 +62,13 @@
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Prickly Pear by Typeheist (paid). After buying a web license, put the files in
-   assets/fonts/ and remove the comment markers around this block:
+/* Indy Hand: Indy's own hand-drawn alphabet, built into a font */
 @font-face {
-  font-family: "Prickly Pear";
-  src: url("assets/fonts/PricklyPear.woff2") format("woff2"),
-       url("assets/fonts/PricklyPear.woff") format("woff");
+  font-family: "Indy Hand";
+  src: url("assets/fonts/IndyHand.woff2") format("woff2"),
+       url("assets/fonts/IndyHand.woff") format("woff");
   font-display: swap;
 }
-*/
 
 *, *::before, *::after { box-sizing: border-box; }
 

@@ -10,7 +10,8 @@ Tick these off as you go. Anything marked 💬 means: send it to Claude and it'l
 - [ ] **Extra doodles (optional but fun).** Sprinkles, scoops, a spoon, a pint, arrows, stars, your handwriting saying things like "no repeats!". Anything drawn on white paper. These get scattered around the site. 💬
 
 ## Font
-- [ ] **Buy Prickly Pear by Typeheist** (youworkforthem.com, from $18). Pick a license that includes **web/webfont use**, then send the font files (.woff2 / .woff, or .otf and Claude will convert). The headline and "Join the list." switch to it automatically; until then they use the free look-alike Finger Paint. 💬
+- [x] Indy's own handwriting is now a font ("Indy Hand", in `assets/fonts/`)
+- [ ] **Optional:** draw 0–9 and `, ! ? ' & -` the same way so the font covers numbers and punctuation (right now those fall back to a look-alike) 💬
 
 ## Accounts to set up
 - [ ] **Google Sheet for sign-ups** (~5 min). Follow [`google-sheets/README.md`](google-sheets/README.md), then send the web-app URL 💬
