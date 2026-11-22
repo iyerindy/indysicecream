@@ -25,7 +25,9 @@ const SITE = {
            "live"      – pints available now
            "sold-out"  – gone forever (shows in the archive)
    pintsLeft only matters for upcoming/live drops.
-   color (optional): the flavor's label color on its archive card.        */
+   color (optional): the flavor's label color on its archive card. Stick to the
+     palette: #f7ecd5 cream, #b59f6f khaki, #ac6070 rose, #36261e chocolate,
+     #c3b145 mustard, #9d914f olive, #c77c93 pink, #5563a5 blue.        */
 const DROPS = [
   {
     number: 1,
@@ -33,7 +35,7 @@ const DROPS = [
     description: "",              // one-liner for the archive card
     when: "",                     // e.g. "October 2026"
     status: "sold-out",
-    color: "#c63759",
+    color: "#c77c93",            // pink
   },
   {
     number: 2,
@@ -41,7 +43,7 @@ const DROPS = [
     description: "",
     when: "",
     status: "sold-out",
-    color: "#a63d1c",
+    color: "#c3b145",            // mustard
   },
   {
     number: 3,
@@ -70,7 +72,20 @@ const PINT_SVG = (gone) => `
     <path class="lid" d="M5 5h30v7H5z"/>
   </svg>`;
 
-const CARD_COLORS = ["var(--c3)", "var(--c4)", "var(--c5)", "var(--c2)", "var(--c1)"];
+const CARD_COLORS = ["var(--c3)", "var(--c2)", "var(--c1)"];
+
+// pick cream or chocolate text, whichever reads better on a label color
+const labelInk = (hex) => {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex || "");
+  if (!m) return "var(--cream)";
+  const lum = [0, 2, 4].map((i) => {
+    const c = parseInt(m[1].slice(i, i + 2), 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  const L = 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
+  // contrast vs cream (#f7ecd5, L~0.84) and chocolate (#36261e, L~0.02)
+  return (0.89 / (L + 0.05)) >= ((L + 0.05) / 0.07) ? "var(--cream)" : "var(--choc)";
+};
 
 /* ---- next drop ticket + top bar ---- */
 function renderCurrentDrop() {
@@ -92,7 +107,7 @@ function renderCurrentDrop() {
 
   const left = Math.max(0, Math.min(TOTAL_PINTS, current.pintsLeft ?? TOTAL_PINTS));
   $("[data-drop-number]").textContent = "#" + pad(current.number);
-  $("[data-drop-flavor]").textContent = current.flavor || "top secret 🤫";
+  $("[data-drop-flavor]").textContent = current.flavor || "top secret";
   $("[data-drop-when]").textContent = current.when || "TBA";
   $("[data-drop-left]").textContent = left;
   pints.innerHTML = Array.from({ length: TOTAL_PINTS }, (_, i) => PINT_SVG(i >= left)).join("");
@@ -137,7 +152,7 @@ function renderArchive() {
         <span class="flavor__num">DROP #${pad(d.number)}</span>
         <span class="flavor__stamp">${stamp}</span>
         ${PINT_SVG(false)}
-        <h3${d.color ? ` class="flavor__label" style="--label:${esc(d.color)}"` : ""}>${esc(name)}</h3>
+        <h3${d.color ? ` class="flavor__label" style="--label:${esc(d.color)};--label-ink:${labelInk(d.color)}"` : ""}>${esc(name)}</h3>
         <p>${esc(d.description || (gone ? "" : "Shh. You'll find out with everyone else on the list."))}</p>
         <p class="flavor__meta">${esc(d.when || (gone ? "gone forever" : ""))}</p>
       </article>`;

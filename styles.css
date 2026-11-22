@@ -3,46 +3,39 @@
    ========================================================= */
 
 :root {
-  /* ---- palette: "Chocolate & Cream" ----
-     Tonal neutrals (vanilla → latte → chocolate) plus one deep cherry
-     for the handwritten notes. Change these to recolor the whole site. */
-  --ink: #36261e;          /* dark chocolate: text + outlines */
-  --ink-soft: #6b4a38;     /* milk chocolate: smaller text */
-  --bg: #f7f0e3;           /* vanilla: page background */
-  --paper: #efe4d0;        /* crumpled-paper header/footer */
-  --field: #fffbf4;        /* inside inputs */
-  --accent: #8c2a2c;       /* deep cherry: handwritten notes, sparkles */
-  --accent-soft: #e4d3b8;  /* latte: blob behind cone, hovers, soft shadows */
-  --pop: #3b2216;          /* chocolate: top bar, big shadows */
-  --on-pop: #f7f0e3;       /* text on chocolate */
-  --sun: #e4d3b8;          /* latte: highlights, tape, step numbers */
-  --c1: #fbf6ec;           /* cards, light → dark: vanilla */
-  --c2: #f1e7d6;           /*   sweet cream */
-  --c3: #e8dac3;           /*   latte */
-  --c4: #f1e7d6;           /*   sweet cream */
-  --c5: #fbf6ec;           /*   vanilla */
-  --how-bg: #3b2216;       /* "how it works" band */
-  --how-fg: #f7f0e3;
-  --about-bg: #ebdfca;     /* about band */
-  --error: #8c2a2c;
-  --line: color-mix(in srgb, var(--ink) 22%, transparent);
+  /* ---- palette: "indy's ice cream" (from Indy's Procreate swatches) ----
+     Only these colors (and see-through mixes of them) are used on the site. */
+  --cream: #f7ecd5;
+  --khaki: #b59f6f;
+  --rose: #ac6070;         /* big handwriting, borders, fills (too light for small text) */
+  --choc: #36261e;
+  --mustard: #c3b145;
+  /* extra swatches, small doses */
+  --olive: #9d914f;
+  --pink: #c77c93;
+  --blue: #5563a5;
 
-  /* "indy's ice cream" swatches from Procreate */
-  --khaki: #b59f6e;        /* hero panel */
-  --label: #f7ecd6;        /* cream labels */
-  --pint: #dacca9;         /* pint fill */
-  --mustard: #c3b145;      /* asterisks */
-  --rose: #ac6070;
+  /* roles */
+  --ink: var(--choc);                                        /* text + outlines */
+  --ink-soft: color-mix(in srgb, var(--choc) 78%, var(--cream));
+  --bg: var(--cream);                                        /* page */
+  --paper: color-mix(in srgb, var(--khaki) 22%, var(--cream)); /* crumpled-paper header/footer */
+  --field: color-mix(in srgb, white 45%, var(--cream));      /* inside inputs */
+  --accent: var(--rose);
+  --accent-soft: color-mix(in srgb, var(--khaki) 45%, var(--cream));
+  --pop: var(--choc);
+  --on-pop: var(--cream);
+  --sun: var(--mustard);
+  --label: var(--cream);
+  --c1: color-mix(in srgb, white 35%, var(--cream));         /* cards, light to dark */
+  --c2: color-mix(in srgb, var(--khaki) 18%, var(--cream));
+  --c3: color-mix(in srgb, var(--khaki) 34%, var(--cream));
+  --how-bg: var(--choc);
+  --how-fg: var(--cream);
+  --about-bg: color-mix(in srgb, var(--khaki) 55%, var(--cream));
+  --error: var(--choc);
+  --line: color-mix(in srgb, var(--choc) 22%, transparent);
   --f-marker: "Delicious Handrawn", "Gaegu", cursive;
-
-  /* periwinkle from the logo: the main accent (fills only on cream; text is fine on chocolate) */
-  --blue: #8b91c9;
-
-  /* flavor accents: used in small doses only */
-  --strawberry: #e36a57;
-  --custard: #efbd48;
-  --pistachio: #a2ab4f;
-  --caramel: #cf8740;
 
   --f-hand: "Gaegu", "Comic Sans MS", cursive;
   --f-caps: "Architects Daughter", "Comic Sans MS", cursive;
@@ -119,14 +112,14 @@ a { color: inherit; }
   cursor: pointer;
   transition: background .2s ease, border-color .2s ease;
 }
-.btn:hover { background: var(--blue); border-color: var(--blue); color: var(--ink); }
+.btn:hover { background: var(--rose); border-color: var(--rose); color: var(--cream); }
 .btn[disabled] { opacity: .6; cursor: progress; }
 
 .form-msg {
   font-family: var(--f-hand);
   font-size: 1.25rem;
   line-height: 1.15;
-  color: var(--accent);
+  color: var(--ink);
   margin: .4em 0 0;
   min-height: 1.2em;
 }
@@ -355,7 +348,7 @@ a { color: inherit; }
   margin: 18px 0 6px;
 }
 .pint { width: 100%; fill: var(--c1); stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
-.pint .lid { fill: var(--blue); }
+.pint .lid { fill: var(--rose); }
 .pint.is-gone { opacity: .25; }
 .pint.is-gone .lid { fill: var(--c1); }
 .ticket__cta { display: block; width: fit-content; margin: 16px auto 0; text-decoration: none; }
@@ -371,7 +364,7 @@ a { color: inherit; }
 .how { color: var(--how-fg); }
 .how .step { color: var(--ink); }
 .how > * { max-width: calc(var(--max) - 2 * var(--gutter)); margin-inline: auto; }
-.how__lede { font-size: clamp(1.05rem, 1.6vw, 1.25rem); margin-bottom: clamp(48px, 6vw, 80px); color: var(--blue); }
+.how__lede { font-size: clamp(1.05rem, 1.6vw, 1.25rem); margin-bottom: clamp(48px, 6vw, 80px); color: var(--mustard); }
 .how__lede { padding-right: max(0px, calc(100% - 36em)); }
 .how .hand-title { margin-bottom: .15em; }
 
@@ -397,11 +390,11 @@ a { color: inherit; }
   border-radius: 50%;
   font-family: var(--f-hand); font-weight: 700; font-size: 1.2rem;
 }
-.step:nth-child(1) { --dot: var(--c1); }
-.step:nth-child(2) { --dot: var(--strawberry); }
-.step:nth-child(3) { --dot: var(--custard); }
-.step:nth-child(4) { --dot: var(--pistachio); }
-.step:nth-child(5) { --dot: var(--caramel); }
+.step:nth-child(1) { --dot: var(--cream); }
+.step:nth-child(2) { --dot: var(--rose); }
+.step:nth-child(3) { --dot: var(--mustard); }
+.step:nth-child(4) { --dot: var(--khaki); }
+.step:nth-child(5) { --dot: var(--pink); }
 .step__art { width: 100%; max-width: 96px; height: auto; margin: 4px auto 10px; display: block; fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .step__art text { stroke: none; fill: var(--ink); font-family: var(--f-hand); font-weight: 700; font-size: 22px; }
 .step h3 { font-family: var(--f-hand); font-weight: 700; font-size: 1.1rem; line-height: 1.2; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 .3em; }
@@ -432,12 +425,12 @@ a { color: inherit; }
 }
 .flavor__num { font-family: var(--f-mono); font-size: .85rem; letter-spacing: .15em; }
 .flavor svg { width: 54px; margin: 18px 0 12px; fill: var(--field); stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
-.flavor svg .lid { fill: var(--blue); }
+.flavor svg .lid { fill: var(--rose); }
 .flavor h3 { font-family: var(--f-hand); font-weight: 700; font-size: 1.15rem; line-height: 1.2; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 .25em; }
 .flavor__label {
   align-self: flex-start;
   background: var(--label);
-  color: var(--on-pop);
+  color: var(--label-ink, var(--cream));
   border-radius: 10px;
   padding: .12em .45em .18em;
   font-size: 1rem !important;
@@ -448,8 +441,8 @@ a { color: inherit; }
 .flavor__stamp {
   position: absolute; top: 14px; right: 12px;
   font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
-  border: 1px solid currentColor; border-radius: 999px; padding: 3px 9px;
-  color: var(--accent);
+  border: 1px solid var(--rose); border-radius: 999px; padding: 3px 9px;
+  color: var(--ink);
 }
 .flavor--empty {
   background: transparent;
@@ -483,10 +476,10 @@ a { color: inherit; }
 .tape {
   position: absolute; z-index: 1;
   width: 96px; height: 28px;
-  background: color-mix(in srgb, var(--custard) 85%, transparent);
+  background: color-mix(in srgb, var(--mustard) 85%, transparent);
 }
 .tape--l { top: 4%; left: -6%; transform: rotate(-28deg); }
-.tape--r { bottom: 18%; right: -8%; transform: rotate(-20deg); background: color-mix(in srgb, var(--blue) 85%, transparent); }
+.tape--r { bottom: 18%; right: -8%; transform: rotate(-20deg); background: color-mix(in srgb, var(--rose) 85%, transparent); }
 
 .about__text { font-family: var(--f-hand); font-size: clamp(1.45rem, 2.6vw, 2rem); line-height: 1.3; letter-spacing: -.01em; }
 .about__text p { margin: 0 0 .5em; }
