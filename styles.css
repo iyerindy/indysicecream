@@ -230,7 +230,7 @@ a { color: inherit; }
 }
 .hero > * { min-width: 0; }
 
-.hero__art { grid-area: art; position: relative; justify-self: center; width: min(100%, 460px); container-type: inline-size; }
+.hero__art { grid-area: art; position: relative; justify-self: center; width: min(100%, 530px); container-type: inline-size; }
 .hero__art img { position: relative; width: 100%; }
 /* soft color shape behind the pint */
 .hero__art::before {
@@ -638,7 +638,7 @@ a { color: inherit; }
 
   .hero { grid-template-columns: 1fr; grid-template-areas: "headline" "art" "signup"; justify-items: center; }
   .hero__headline { align-items: center; font-size: clamp(2rem, 9vw, 3rem); }
-  .hero__art { width: min(80%, 380px); }
+  .hero__art { width: min(86%, 420px); }
   .signup { width: 100%; }
   .drop, .contact { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; text-align: center; }
