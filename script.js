@@ -117,8 +117,12 @@ function renderCurrentDrop() {
     ? `drop #${pad(current.number)} is live${current.flavor ? ": " + current.flavor : ""}`
     : current.flavor
       ? `next drop: ${current.flavor}`
-      : "stay tuned for next drop";
-  $$("[data-topbar]").forEach((el) => (el.textContent = msg));
+      : null;
+  if (msg) $$("[data-topbar]").forEach((el) => (el.textContent = msg));
+
+  // the flavor band on the hero pint
+  const band = $("[data-pint-flavor]");
+  if (band) band.textContent = current.flavor || "top secret";
 }
 
 /* ---- archive ---- */

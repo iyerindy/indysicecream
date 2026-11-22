@@ -4,6 +4,7 @@ Tick these off as you go. Anything marked 💬 means: send it to Claude and it'l
 
 ## Files to make 🎨
 - [ ] **Logo.** Redraw "INDY's" on plain white paper with a dark marker, then photograph it straight-on in good light (no shadows). 💬
+- [ ] **Hero art from Procreate.** Export the pint drawing and the "ONE FLAVOR. TEN PINTS. EVERY MONTH." lettering as separate transparent PNGs, at least 2× the size you drew them. The site uses copies cut from your mockup screenshot for now. 💬
 - [ ] **Cone drawing.** Same thing: the original or a fresh one, on white paper. 💬
 - [ ] **Photo of little Indy.** The original photo file, as big as you have it. 💬
 - [ ] **Extra doodles (optional but fun).** Sprinkles, scoops, a spoon, a pint, arrows, stars, your handwriting saying things like "no repeats!". Anything drawn on white paper. These get scattered around the site. 💬
