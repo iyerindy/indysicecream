@@ -667,7 +667,7 @@ a { color: inherit; }
    Default (no attribute) = khaki. Try one with <html data-top="rose">.
    ========================================================= */
 [data-top="choc"] {
-  --bar-bg: var(--mustard);  --tag-bg: var(--choc);  --tag-fg: var(--cream);  --star: var(--choc);
+  --bar-bg: var(--choc);     --tag-bg: var(--cream); --tag-fg: var(--choc);  --star: var(--mustard);
   --hero-bg: var(--choc);    --hero-fg: var(--cream);
 }
 [data-top="rose"] {
